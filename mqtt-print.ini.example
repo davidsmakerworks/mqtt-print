@@ -1,0 +1,11 @@
+[MQTT]
+Server = mqtt.example.com
+Port = 1883
+Topic = example/topic
+Auth = False
+TLS = False
+Username = example
+Password = p@55word
+
+[Printer]
+PrinterFile = /dev/usb/lp0

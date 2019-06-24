@@ -1,0 +1,13 @@
+[Unit]
+Description=MQTT Message Printing
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/lib/mqtt-print/mqtt-print.py
+WorkingDirectory=/usr/local/lib/mqtt-print
+Environment=PYTHONUNBUFFERED=1
+Restart=on-failure
+Type=notify
+User=mqtt-print
+
+[Install]
+WantedBy=default.target
