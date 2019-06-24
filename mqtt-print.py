@@ -10,6 +10,7 @@ import paho.mqtt.subscribe as subscribe
 wrapper = TextWrapper(32)
 
 config = configparser.ConfigParser()
+config.read('mqtt-print.ini')
 
 mqtt_server = config['MQTT'].get('Server')
 mqtt_port = config['MQTT'].getint('Port')
