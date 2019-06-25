@@ -17,11 +17,11 @@
         $message = $_POST['message'];
      
         if (strlen($message) > 500) {
-            $message = ($message, 0, 500);
+            $message = substr($message, 0, 500);
         }
 
         $client_id = "mqtt-print-publisher";
-        $mqtt = new phpMQTT($mqtt_server, $mqtt_port, $client_id);
+        $mqtt = new Bluerhinos\phpMQTT($mqtt_server, $mqtt_port, $client_id);
 
         if ($mqtt->connect(true, NULL, $mqtt_username, $mqtt_password)) {
 	        $mqtt->publish($mqtt_topic, $message, 0);
@@ -39,7 +39,7 @@
         ?>
 
         <form action="index.php" method="POST">
-            Message: <textarea name="message" cols=40 rows=8 maxlength=500><br />
+            Message: <textarea name="message" cols=40 rows=8 maxlength=500></textarea><br />
             <input type=submit value="Send Message">
         </form>
     </div>
