@@ -63,6 +63,10 @@ while True:
     prt = printer.File(printer_file)
 
     msg_string = msg.payload.decode()
+
+    if len(msg_string) > 500:
+        msg_string = msg_string[:500]
+        
     msg_string = wrapper.fill(msg_string)
 
     prt.set(width=2, align='center')
